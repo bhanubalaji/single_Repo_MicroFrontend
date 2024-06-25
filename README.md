@@ -34,4 +34,8 @@ ng generate application mfe2
 ng add @angular-architects/module-federation --project shell --type host
 ng add @angular-architects/module-federation --project mfe1 --type remote
 ng add @angular-architects/module-federation --project mfe2 --type remote
+cmd to run
+ng serve shell --port 4200
+ng serve mfe1 --port 4201
+ng serve mfe2 --port 4202
 
