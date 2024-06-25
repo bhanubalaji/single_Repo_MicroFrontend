@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+step to do
+ng new mfe-workspace --create-application=false
+cd mfe-workspace
+ng generate application shell
+ng generate application mfe1
+ng generate application mfe2
+ng add @angular-architects/module-federation --project shell --type host
+ng add @angular-architects/module-federation --project mfe1 --type remote
+ng add @angular-architects/module-federation --project mfe2 --type remote
+
