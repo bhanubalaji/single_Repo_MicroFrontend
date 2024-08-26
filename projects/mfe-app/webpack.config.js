@@ -12,11 +12,11 @@ module.exports = {
   output: {
     uniqueName: "mFEApp",
     publicPath: "auto",
-    scriptType:"text/javascript"
+    scriptType: "text/javascript"
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -27,31 +27,22 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        // library: { type: "module" },
+      name: "mFEApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        './ExampleTaskModule': './projects/mfe-app/src/app/example-task/example-task.module.ts',
 
-        // For remotes (please adjust)
-        name: "mFEApp",
-        filename: "remoteEntry.js",
-        exposes: {  
-            './ExampleTaskModule': './projects/mfe-app/src/app/example-task/example-task.module.ts',
-        },        
-        
-        // For hosts (please adjust)
-        // remotes: {
-        //     "hostApp": "http://localhost:4200/remoteEntry.js",
-
-        // },
-
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
-          ...sharedMappings.getDescriptors()
-        })
-        
+      },
+      shared: share({
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@ngrx/store": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@ngrx/effects": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        ...sharedMappings.getDescriptors()
+      })
     }),
     sharedMappings.getPlugin()
-  ],
+  ]
 };
