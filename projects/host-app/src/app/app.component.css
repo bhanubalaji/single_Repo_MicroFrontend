@@ -46,3 +46,9 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+nav{
+  text-align: center;
+  color: red;
+  font-size: 1.8rem;
+}
