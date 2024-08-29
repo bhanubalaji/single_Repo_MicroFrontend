@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
-    ExampleTaskComponent
+    ExampleTaskComponent,
   ],
   imports: [
     CommonModule,
