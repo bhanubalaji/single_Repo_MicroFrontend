@@ -12,7 +12,7 @@ import { selectSomeState } from 'shared-state-mylibrary'
 })
 export class AppComponent {
   title = 'Host-app';
-  inputValue:any
+  inputValue:any='test'
   // state$: Observable<string>;
 
   constructor(private store: Store<{ app: State }>) {
